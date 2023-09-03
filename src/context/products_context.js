@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useContext, useEffect, useReducer } from 'react';
+import { useContext, useEffect, useReducer, createContext } from 'react';
 import reducer from '../reducers/products_reducer';
 import { products_url as url } from '../utils/constants';
 import {
@@ -24,7 +24,7 @@ const initialState = {
   single_product: {},
 };
 
-const ProductsContext = React.createContext();
+const ProductsContext = createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
